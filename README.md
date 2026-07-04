@@ -7,7 +7,6 @@ A high-precision automated application engineered to compute legal shares of inh
 <img width="901" height="518" alt="image" src="https://github.com/user-attachments/assets/df977b4a-5495-4691-945e-ce0b7b911a9f" />
 <img width="902" height="340" alt="image" src="https://github.com/user-attachments/assets/f4baadea-cfca-41c5-b7ba-b79f27de5105" />
 <img width="898" height="483" alt="image" src="https://github.com/user-attachments/assets/8032a4bb-1950-495b-be9e-7bbf3e2471f3" />
-<img width="896" height="487" alt="image" src="https://github.com/user-attachments/assets/7563a378-16ec-418b-a627-cffbbe2be456" />
 <img width="898" height="225" alt="image" src="https://github.com/user-attachments/assets/76ce4a3c-a0ea-4ede-8dbc-6258ac4dcd43" />
 
 ## Project Overview
