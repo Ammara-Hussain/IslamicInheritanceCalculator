@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.shape.Line?>
+
+<ScrollPane fx:id="mainScrollPane" fitToWidth="true" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.faraid.ui.FaraidController" styleClass="root">
+    <VBox spacing="0" alignment="TOP_CENTER">
+
+        <HBox fx:id="navigationBar" styleClass="navbar">
+            <Button text="Calculation" onAction="#scrollToCalculator" styleClass="nav-button"/>
+            <Button text="Fixed Shares" onAction="#scrollToFixedShares" styleClass="nav-button"/>
+            <Button text="Topology of Heirs" onAction="#scrollToTopology" styleClass="nav-button"/>
+            <Button text="Quranic Guidance" onAction="#scrollToReference" styleClass="nav-button"/>
+        </HBox>
+
+        <VBox alignment="CENTER" spacing="10" styleClass="main-banner">
+            <Label text="بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ" styleClass="bismillah-label-white"/>
+            <Label text="AUTOMATED ISLAMIC INHERITANCE" styleClass="title-main-white"/>
+            <Label text="CALCULATION SYSTEM" styleClass="title-sub-white"/>
+        </VBox>
+
+        <VBox spacing="30" alignment="TOP_CENTER">
+            <padding><Insets bottom="60" top="30" left="20" right="20"/></padding>
+
+            <VBox maxWidth="950" spacing="20" styleClass="content-card">
+                <Label text="💰 Assets &amp; Liabilities" styleClass="section-header"/>
+                <GridPane hgap="25" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="50"/><ColumnConstraints percentWidth="50"/>
+                    </columnConstraints>
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Total Assets *" style="-fx-font-weight: bold;"/>
+                        <TextField fx:id="totalWealthField" promptText="Enter total assets in Rs" styleClass="text-field"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label text="Outstanding Debts"/><TextField fx:id="debtField" text="0" styleClass="text-field"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <Label text="Funeral Expenses"/><TextField fx:id="funeralField" text="0" styleClass="text-field"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label text="Bequest / Will (Max 1/3)"/><TextField fx:id="willField" text="0" styleClass="text-field"/>
+                    </VBox>
+                </GridPane>
+            </VBox>
+
+            <VBox fx:id="calculatorSection" maxWidth="950" spacing="20" styleClass="content-card">
+                <Label text="👥 Family Members" styleClass="section-header"/>
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <ComboBox fx:id="heirTypeSelector" promptText="Select Relationship" HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="combo-box"/>
+                    <Button text="+ Add Member" onAction="#handleAddHeirAction" prefHeight="45" styleClass="add-button"/>
+                </HBox>
+                <TableView fx:id="resultsTable" prefHeight="300" styleClass="table-view">
+                    <columns>
+                        <TableColumn fx:id="nameColumn" text="Relationship" prefWidth="180"/>
+                        <TableColumn fx:id="shareColumn" text="Quranic Share" prefWidth="220"/>
+                        <TableColumn fx:id="refColumn" text="Quranic Reference" prefWidth="500"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="20" alignment="CENTER">
+                    <Button text="RESET FORM" onAction="#onResetButtonClick" style="-fx-background-color: #757575; -fx-text-fill: white; -fx-padding: 12 30; -fx-font-weight: bold;"/>
+                    <Button text="CALCULATE INHERITANCE" onAction="#onCalculateButtonClick" styleClass="calculate-button"/>
+                </HBox>
+                <VBox alignment="CENTER">
+                    <Label fx:id="netEstateLabel" text="Net Estate for Distribution: --" style="-fx-font-weight: bold; -fx-font-size: 22px; -fx-text-fill: #006666;"/>
+                </VBox>
+            </VBox>
+
+            <VBox fx:id="topologySection" maxWidth="1100" alignment="TOP_CENTER" styleClass="content-card">
+                <padding><Insets top="40" bottom="50" left="30" right="30"/></padding>
+                <Label text="🌳 Topology of Heirs" styleClass="section-header"/>
+                <Label text="تَرْتِيبُ الْوَرَثَةِ: Divine Hierarchy" style="-fx-font-size: 16px; -fx-text-fill: #006666; -fx-padding: 5 0 25 0;"/>
+
+                <VBox spacing="0" alignment="CENTER">
+                    <VBox alignment="CENTER" style="-fx-background-color: #006666; -fx-padding: 15; -fx-background-radius: 5;" maxWidth="500">
+                        <Label text="Sharers (Zawil Furud)" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18px;"/>
+                        <Label text="فُرُوضِيُّون" style="-fx-text-fill: #D4AF37; -fx-font-size: 16px; -fx-padding: 2 0;"/>
+                        <Label text="Heirs with fixed, Quranic shares. They receive their portion first." style="-fx-text-fill: #E0F2F1; -fx-font-size: 12px;"/>
+                    </VBox>
+                    <StackPane>
+                        <Line startY="0" endY="50" stroke="#006666" strokeWidth="2.5" style="-fx-opacity: 0.7;"/>
+                        <Label text="▼" style="-fx-text-fill: #006666; -fx-font-size: 20px; -fx-padding: 30 0 0 0;"/>
+                    </StackPane>
+                    <VBox alignment="CENTER" style="-fx-background-color: #006666; -fx-padding: 15; -fx-background-radius: 5;" maxWidth="500">
+                        <Label text="Residuaries (Asabaat)" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18px;"/>
+                        <Label text="عَصَبَات" style="-fx-text-fill: #D4AF37; -fx-font-size: 16px; -fx-padding: 2 0;"/>
+                        <Label text="Agnatic heirs who receive the remaining estate after Sharers are paid." style="-fx-text-fill: #E0F2F1; -fx-font-size: 12px;"/>
+                    </VBox>
+                    <StackPane>
+                        <Line startY="0" endY="50" stroke="#006666" strokeWidth="2.5" style="-fx-opacity: 0.7;"/>
+                        <Label text="▼" style="-fx-text-fill: #006666; -fx-font-size: 20px; -fx-padding: 30 0 0 0;"/>
+                    </StackPane>
+                    <VBox alignment="CENTER" style="-fx-background-color: #006666; -fx-padding: 15; -fx-background-radius: 5;" maxWidth="500">
+                        <Label text="Distant Kindred (Zawil Arham)" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 18px;"/>
+                        <Label text="ذَوِى الْأَرْحَام" style="-fx-text-fill: #D4AF37; -fx-font-size: 16px; -fx-padding: 2 0;"/>
+                        <Label text="Relatives who inherit only if no Sharers or Residuaries exist." style="-fx-text-fill: #E0F2F1; -fx-font-size: 12px;"/>
+                    </VBox>
+                </VBox>
+            </VBox>
+
+            <VBox fx:id="fixedSharesSection" maxWidth="1100" alignment="TOP_CENTER" styleClass="content-card">
+                <padding><Insets top="40" bottom="50" left="30" right="30"/></padding>
+                <Label text="📜 Sharers &amp; Their Shares" styleClass="section-header"/>
+                <Label text="الْوَرَثَةُ فُرُوضِيُّون: Fixed Quranic Allotments" style="-fx-font-size: 16px; -fx-text-fill: #006666; -fx-padding: 5 0 25 0;"/>
+
+                <GridPane hgap="25" vgap="25" alignment="CENTER">
+                    <padding><Insets left="10" right="10"/></padding>
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="HUSBAND | الزَّوْج" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #006666;"/>
+                        <Label text="1/2 if No Children, 1/4 if Children exist." style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="0" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="WIFE | الزَّوْجَة" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #006666;"/>
+                        <Label text="1/4 if No Children, 1/8 if Children exist." style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="FATHER | الْأَب" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #006666;"/>
+                        <Label text="1/6 if Children exist, Residue if No Children." style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="1" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="MOTHER | الْأُم" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #006666;"/>
+                        <Label text="1/3 if No Children, 1/6 if Children or multi-siblings." style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="DAUGHTER | الْبِنْت" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #006666;"/>
+                        <Label text="1/2 if Single, 2/3 shared if two or more (with no son)." style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="2" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="GRANDDAUGHTER | بِنْتُ الابْنِ" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #006666;"/>
+                        <Label text="1/2 if Single, 2/3 shared if multiple (no son/daughter)." style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="TRUE GRANDFATHER | الْجَد" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #006666;"/>
+                        <Label text="1/6 if No Father &amp; Children exist." style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="3" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="TRUE GRANDMOTHER | الْجَدَّة" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #006666;"/>
+                        <Label text="1/6 shared if No Mother exists." style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="0" GridPane.rowIndex="4" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="FULL SISTER | الْأُخْتُ الشَّقِيقَة" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #006666;"/>
+                        <Label text="1/2 if Single, 2/3 if multiple (no direct male heirs)." style="-fx-font-size: 12px;"/>
+                    </VBox>
+                    <VBox spacing="5" GridPane.columnIndex="1" GridPane.rowIndex="4" style="-fx-background-color: #f0f0f0; -fx-padding: 15; -fx-background-radius: 8;">
+                        <Label text="UTERINE SIBLINGS | الْأَخُ/الْأُخْتُ لِأُمٍّ" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #006666;"/>
+                        <Label text="1/6 if Single, 1/3 shared equally if two or more." style="-fx-font-size: 12px;"/>
+                    </VBox>
+                </GridPane>
+            </VBox>
+
+            <VBox fx:id="referencesSection" maxWidth="1100" alignment="TOP_CENTER" styleClass="content-card">
+                <padding><Insets top="40" bottom="50" left="30" right="30"/></padding>
+                <Label text="📖 Prophetic Traditions (Hadith)" styleClass="section-header"/>
+                <Label text="Authentic Narrations from Sahih Bukhari" style="-fx-font-size: 16px; -fx-text-fill: #006666; -fx-padding: 5 0 25 0;"/>
+
+                <VBox spacing="20" alignment="CENTER">
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-border-color: #D4AF37; -fx-border-width: 0 0 0 5; -fx-padding: 20; -fx-background-radius: 5;" maxWidth="850">
+                        <Label text="SAHIH BUKHARI (Vol. 8, Book 80, Hadith 724)" style="-fx-font-weight: bold; -fx-text-fill: #006666;"/>
+                        <Label text="Narrated Ibn 'Abbas: The Prophet (ﷺ) said, 'Give the Fara'id (the shares of the inheritance that are prescribed in the Qur'an) to those who are entitled to receive them. Then whatever remains, should be given to the closest male relative of the deceased.'"
+                               wrapText="true" style="-fx-font-family: 'Georgia'; -fx-font-size: 14px; -fx-line-spacing: 4; -fx-font-style: italic;"/>
+                    </VBox>
+
+                    <VBox spacing="10" style="-fx-background-color: white; -fx-border-color: #D4AF37; -fx-border-width: 0 0 0 5; -fx-padding: 20; -fx-background-radius: 5;" maxWidth="850">
+                        <Label text="SAHIH BUKHARI (Book 85, Hadith 6735)" style="-fx-font-weight: bold; -fx-text-fill: #006666;"/>
+                        <Label text="The Prophet (ﷺ) emphasized that the knowledge of 'Al-Faraid' (Inheritance Laws) is half of knowledge and it is the first thing to be taken away from my Ummah."
+                               wrapText="true" style="-fx-font-family: 'Georgia'; -fx-font-size: 14px; -fx-line-spacing: 4;"/>
+                    </VBox>
+                </VBox>
+            </VBox>
+
+            <VBox fx:id="guidanceBannerSection" maxWidth="950" alignment="CENTER" styleClass="content-card">
+                <Label text="✨ Quranic Guidance" styleClass="section-header"/>
+                <StackPane style="-fx-background-color: #f4f4f4; -fx-padding: 20; -fx-background-radius: 10;">
+                    <VBox.margin><Insets top="15"/></VBox.margin>
+                    <ImageView fx:id="quranicImageView" fitWidth="700.0" fitHeight="400.0" preserveRatio="true" smooth="true" />
+                </StackPane>
+            </VBox>
+        </VBox>
+
+        <VBox alignment="CENTER" minHeight="300" style="-fx-background-color: #006666;">
+            <padding><Insets top="80" bottom="80" left="40" right="40"/></padding>
+            <VBox alignment="CENTER" spacing="20" maxWidth="850">
+                <Label text="“Indeed, Allah is the most justful authority and His guidance is the best.”"
+                       wrapText="true" textAlignment="CENTER"
+                       style="-fx-font-family: 'Georgia'; -fx-font-size: 24px; -fx-font-style: italic; -fx-text-fill: white;"/>
+                <Region prefHeight="1.5" maxWidth="250" style="-fx-background-color: #D4AF37; -fx-opacity: 0.6;"/>
+                <Label text="© 2026 Automated Islamic Inheritance Calculation System"
+                       style="-fx-font-size: 14px; -fx-text-fill: #D4AF37; -fx-letter-spacing: 1.5px; -fx-font-weight: bold;"/>
+            </VBox>
+        </VBox>
+
+    </VBox>
+</ScrollPane>

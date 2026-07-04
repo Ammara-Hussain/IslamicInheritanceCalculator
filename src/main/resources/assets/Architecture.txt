@@ -1,0 +1,30 @@
+SYSTEM ARCHITECTURE:
+
+The project follows a Layered Architecture, where each layer contains specific Design Patterns to handle its own complexity.
+
+1. Presentation Layer (main package): This is the user interface.
+
+2. Business Logic/Service Layer (engine, strategy, handlers packages): The core of the system, utilizing Chain of Responsibility to process financial obligations and the Strategy Pattern to dynamically select distribution algorithms (e.g., Aul, Rudd, Standard).
+
+3. Data/Model Layer (model package): These are the plain data objects. It Defines the structure of  the Estate and Heir entities
+
+DESIGN PATTERNS:
+
+1. Chain of Responsibility: Implemented within the Business Logic layer to handle linear data processing (Liabilities).
+
+2. Strategy Pattern: Implemented within the Business Logic layer to handle polymorphic algorithmic changes (Distribution).
+
+USE OF PACKAGES:
+Package-level encapsulation is used to group logically related java files together. This enforces the Separation of Concerns, ensuring that the distribution logic is physically separated from the financial liability logic (Handlers) and the data entities (Model).
+
+CORE SOFTWARE DESIGN AND ARCHITECTURE (SDA) PRINCIPLE APPLIED TO THE PROJECT:
+
+1. Single Responsibility Principle (SRP): Each class (e.g., FuneralHandler, WifeOnlyStrategy) has only one well-defined purpose in the inheritance pipeline.
+
+2. Open for Extension but Closed for Modification Principle (OCP): You can add new inheritance rules (like AulStrategy or RuddStrategy) without modifying existing logic in RuleEngine or CalculatorService.
+
+3. Liskov Substitution Principle (LSP): All strategy and handler classes can be replaced by their interface (InheritanceStrategy or FinancialHandler) without affecting system correctness. It means that the CalculatorService and the RuleEngine only communicate the respective interfaces so they do not depend on the concrete classes of these interfaces. The system adheres to the Liskov Substitution Principle (LSP) by ensuring that CalculatorService and RuleEngine interact exclusively with the FinancialHandler and InheritanceStrategy interfaces. Because the orchestrators do not depend on concrete implementations, any specific handler or strategy can be substituted at runtime without affecting the system's correctness or requiring modifications to the orchestrating logic.
+
+4. Interface Segregation Principle (ISP): By using specific interfaces for handlers and strategies, classes are not forced to depend on methods they do not use.
+
+5. Dependency Inversion Principle (DIP): Your high-level CalculatorService depends on abstractions (the interfaces) rather than concrete implementations, allowing for flexible component swapping.

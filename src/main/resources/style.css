@@ -1,0 +1,173 @@
+/*
+   Quranic Theme: Teal, Gold, and Parchment
+   Refined for the Automated Islamic Inheritance Calculation System
+*/
+
+.root {
+    -fx-background-color: #FDFCF0; /* Light Cream Parchment background */
+}
+
+/* 1. Navigation Bar Styling */
+.navbar {
+    -fx-background-color: white;
+    -fx-padding: 20 60;
+    -fx-alignment: CENTER;
+    -fx-spacing: 40;
+    -fx-border-color: transparent transparent #D4AF37 transparent; /* Gold bottom border */
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0, 0, 2);
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #555555;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-transition: 0.3s;
+}
+
+.nav-button:hover {
+    -fx-text-fill: #008080; /* Teal accent */
+    -fx-border-color: transparent transparent #008080 transparent;
+    -fx-border-width: 0 0 2 0;
+}
+
+/* 2. Main Header Banner (Teal Background with White/Gold Text) */
+.main-banner {
+    -fx-background-color: #006666; /* Deep Teal background */
+    -fx-padding: 60 0;
+    -fx-alignment: CENTER;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 5);
+}
+
+.title-main-white {
+    -fx-font-family: "Cinzel", "Times New Roman", serif;
+    -fx-font-size: 38px;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-letter-spacing: 5px;
+}
+
+.title-sub-white {
+    -fx-font-family: "Cinzel", "Times New Roman", serif;
+    -fx-font-size: 26px;
+    -fx-text-fill: #D4AF37; /* Gold accent */
+    -fx-letter-spacing: 3px;
+}
+
+.bismillah-label-white {
+    -fx-font-family: "Amiri", "Arabic Typesetting", "Georgia";
+    -fx-font-size: 32px;
+    -fx-text-fill: white;
+    -fx-padding: 0 0 10 0;
+}
+
+.subtitle-label-white {
+    -fx-font-family: "Georgia";
+    -fx-font-style: italic;
+    -fx-text-fill: #B2DFDB; /* Soft light teal tint */
+    -fx-font-size: 16px;
+}
+
+/* 3. Card Layouts */
+.content-card {
+    -fx-background-color: white;
+    -fx-background-radius: 15;
+    -fx-padding: 40;
+    -fx-border-color: #E0E0E0;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 15, 0, 0, 5);
+}
+
+/* 4. Section Headers */
+.section-header {
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #008080; /* Teal primary */
+    -fx-border-color: transparent transparent #008080 transparent;
+    -fx-border-width: 2;
+    -fx-padding: 0 0 5 0;
+}
+
+/* 5. Buttons and Inputs */
+.calculate-button {
+    -fx-background-color: #008080; /* Deep Teal */
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 45;
+    -fx-background-radius: 5;
+    -fx-border-color: #D4AF37;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.calculate-button:hover {
+    -fx-background-color: #004D40; /* Darker Teal */
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 2);
+}
+
+.add-button {
+    -fx-background-color: #E0F2F1; /* Soft Teal Tint */
+    -fx-text-fill: #00796B;
+    -fx-border-color: #80CBC4;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+}
+
+.add-button:hover {
+    -fx-background-color: #B2DFDB;
+}
+
+/* 6. Tables and Fields */
+.table-view {
+    -fx-base: #FDFCF0;
+    -fx-control-inner-background: #FDFCF0;
+    -fx-table-cell-border-color: #E0E0E0;
+    -fx-background-radius: 10;
+}
+
+.table-view .column-header {
+    -fx-background-color: #008080;
+    -fx-padding: 10;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.text-field {
+    -fx-background-radius: 5;
+    -fx-padding: 10;
+    -fx-border-color: #E0E0E0;
+    -fx-background-color: #FAFAFA;
+}
+
+.text-field:focused {
+    -fx-border-color: #008080; /* Teal focus */
+    -fx-background-color: white;
+}
+
+.combo-box {
+    -fx-background-radius: 5;
+    -fx-border-color: #E0E0E0;
+    -fx-padding: 5;
+}
+
+/* 7. Footer Styling */
+.footer-area {
+    -fx-padding: 50 0;
+    -fx-alignment: CENTER;
+}
+
+.footer-text {
+    -fx-font-family: "Georgia";
+    -fx-text-fill: #757575;
+    -fx-font-size: 13px;
+    -fx-letter-spacing: 1px;
+}
